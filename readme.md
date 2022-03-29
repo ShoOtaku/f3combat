@@ -16,28 +16,15 @@ How to add a new strategy to your XivCombat
 **Any question or advice is welcome**
 
 
-**Current ACR Status:**
-**Healers: **
-        **WHM:** 0
-        **SCH:** 0
-        **AST:** 0
-        **SGE:** 0
-**Tanks: **
-        **PLD:** 0
-        **WAR:** 0
-        **DRK:** 0
-        **GNB:** 0
+**Current FCR Status:**
+
+
+        
 **Melee DPS: **
-        **MNK:** Almost Complete [need opt]
-        **DRG:** complete GCD
-        **NIN:** 0
-        **SAM:** 0
-        **RPR:** 0
-**Physical Ranged DPS: **
-        **BRD:** 0
-        **MCH:** 0
-        **DNC:** 0
-**Magical Ranged DPS: **
-        **BLM:** 0
-        **SMN:** 0
-        **RDM:** 0
+
+**MNK:** Almost Complete [need opt]
+        
+**DRG:** complete GCD
+        
+
+        
