@@ -6,6 +6,7 @@ To use my combat strategy, please make sure your FPT3 is up to date
 
 How to add a new strategy to your XivCombat
 
+* put the folder **meta_data** into .\\FFxivPythonTrigger\
 * put the strategy into .\plugins\XivCombat\strategies\OT
 * add the job your just put in the folder like below in **_init_.py**
 
