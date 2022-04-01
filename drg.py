@@ -14,7 +14,6 @@ class DragoonStrategy(Strategy):
         if data.target_distance <= 3:
             single_target = data.target
         else:
-
             if data.target_distance <= 10 and data.me.level >= 62 and data.combo_id == a('死天枪(DRG)'):
                 return UseAbility(a('音速刺(DRG)'))
             elif data.target_distance <= 10 and data.me.level >= 72 and data.combo_id == a('音速刺(DRG)'):
@@ -25,6 +24,8 @@ class DragoonStrategy(Strategy):
                 return UseAbility(a('死天枪(DRG)'))
             elif data.target_distance >=5 and data.target_distance <= 20 and data.me.level >= 15:
                 return UseAbility(a('贯穿尖(DRG)'))
+            else:
+                return None
 
         t_effect = data.target.effects.get_dict(source=data.me.id)
         need_dot1 = (data.me.level >= 50 and data.me.level < 86) and (s('樱花怒放(1)') not in t_effect or t_effect[s('樱花怒放(1)')].timer <= 6) 
@@ -68,13 +69,9 @@ class DragoonStrategy(Strategy):
         return UseAbility(a('精准刺(DRG)'), single_target.id)
     
     def non_global_cool_down_ability(self, data: 'LogicData') -> UseAbility | UseItem | UseCommon | None:
-        red_dragoon = data.gauge.stance == 2
-
-
-                
+        red_dragoon = data.gauge.stance == 2    
         if not data[a('猛枪(DRG)')]:
             return UseAbility(a('猛枪(DRG)'))
-
         if not data[a('战斗连祷(DRG)')]:
             return UseAbility(a('战斗连祷(DRG)'))
         if not data[a('破碎冲(DRG)')] or data[a('破碎冲(DRG)')] < 60:
