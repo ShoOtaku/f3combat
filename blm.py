@@ -14,10 +14,15 @@ data.gauge.umbral_stacks  3 火3   -3 冰3
 data.gauge.umbral_hearts  冰针
 data.gauge.umbral_ms
 data.gauge.foul_count
-data.gauge.polygot_active
+data.gauge.polygot_active  悖论标记
 '''
-
-
+blm_dot = {s('闪雷(0)'), s('震雷(0)'), s('暴雷'), s('霹雷(0)')}
+def target_has_dots(data, actor, dots):
+    effects = actor.effects.get_dict(source=data.me.id)
+    for dot in dots:
+        if dot in effects:
+            return effects[dot].timer
+    return 0
 class BlackMageStrategy(Strategy):
     name = 'ot/blm'
     job = 'BlackMage'
@@ -31,44 +36,75 @@ class BlackMageStrategy(Strategy):
             if not single_target or data.actor_distance_effective(single_target) > 25: 
                 return
             single_distance = data.actor_distance_effective(single_target)
-        t_effect = data.target.effects.get_dict(source=data.me.id)
-        need_singledot1 = (data.me.level >= 6 and data.me.level < 45) and (s('闪雷(0)') not in t_effect or t_effect[s('闪雷(0)')].timer <= 3)
-        need_aoedot1 = (data.me.level >= 26 and data.me.level < 64) and (s('震雷(0)') not in t_effect or t_effect[s('震雷(0)')].timer <= 3)
-        need_singledot2 = data.me.level >= 45 and (s('暴雷') not in t_effect or t_effect[s('暴雷')].timer <= 3)
-        need_aoedot2 = data.me.level >= 64 and (s('霹雷(0)') not in t_effect or t_effect[s('霹雷(0)')].timer <= 3)
-        need_fire = data.gauge.umbral_ms < 5.5*1000
         if data.me.level >= 12 :
             aoe_target, aoe_cnt = cnt_enemy(data, aoe)
         else:
             aoe_target, aoe_cnt = single_target, 0
-        
+        need_fire = data.gauge.umbral_ms < 6*1000
+        need_use_foul = data.gauge.next_polyglot_ms < 6*1000
+#移动中用瞬发        
+        if data.is_moving and s('三连咏唱') not in data.effects:
+            if data.gauge.foul_count > 0 and data.me.level >= 80:
+                if aoe_cnt > 2:
+                    return UseAbility(a('秽浊(BLM)'), aoe_target.id)
+                return UseAbility(a('异言(BLM)'))
+            if s('火苗') in data.effects and data.gauge.umbral_stacks > 0:
+                return UseAbility(a('爆炎(BLM)'))
+            if s('雷云(0)') in data.effects:
+                if aoe_cnt > 2:
+                    if data.me.level >= 64:
+                        return UseAbility(a('霹雷(BLM)'), aoe_target.id)
+                    return UseAbility(a('震雷(BLM)'), aoe_target.id)
+                if data.me.level >= 45:
+                    return UseAbility(a('暴雷(BLM)'))
+                return UseAbility(a('闪雷(BLM)'))
+            if data.gauge.polygot_active > 0 and data.gauge.umbral_stacks < 0:
+                return UseAbility(a('悖论(BLM)'))
+
+
 #火状态
         if data.gauge.umbral_stacks > 0 and (not data.is_moving or s('三连咏唱') in data.effects):      
-            if data.me.current_mp > 1600:
+            if data.me.current_mp >= 1600:
                 if aoe_cnt > 2 and data.me.level > 18 and data.me.current_mp >= 3000:
-                    if need_aoedot2:
-                        return UseAbility(a('霹雷(BLM)'), aoe_target.id, wait_until=lambda: s('霹雷(0)') in data.refresh_cache('t_effect'))
-                    if need_aoedot1:
-                        return UseAbility(a('震雷(BLM)'), aoe_target.id, wait_until=lambda: s('震雷(0)') in data.refresh_cache('t_effect'))
+                    if data.gauge.foul_count > 0:
+                        return UseAbility(a('秽浊(BLM)'), aoe_target.id)
+                    if data.ttk(aoe_target) > 15 and target_has_dots(data, aoe_target, blm_dot) < 5 and data.last_action != (a('霹雷(BLM)') or a('震雷(BLM)')):
+                        if data.me.level >= 64:
+                            return UseAbility(a('霹雷(BLM)'), aoe_target.id)
+                        if data.me.level >= 26:
+                            return UseAbility(a('震雷(BLM)'), aoe_target.id)
                     if s('核爆效果提高') in data.effects:
                         return UseAbility(a('核爆(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks > 0)
+                    if data.me.level >= 82:
+                        return UseAbility(a('高烈炎(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks > 0)
                     return UseAbility(a('烈炎(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks > 0)
-                if need_singledot2:
-                    return UseAbility(a('暴雷(BLM)'), wait_until=lambda: s('暴雷') in data.refresh_cache('t_effect'))
-                if need_singledot1:
-                    return UseAbility(a('闪雷(BLM)'), wait_until=lambda: s('闪雷(0)') in data.refresh_cache('t_effect'))
+                if data.ttk(single_target) > 9 and target_has_dots(data, single_target, blm_dot) < 5 and data.last_action != (a('暴雷(BLM)') or a('闪雷(BLM)')):
+                    if data.me.level >= 45:
+                        return UseAbility(a('暴雷(BLM)'))
+                    if data.me.level >= 6:
+                        return UseAbility(a('闪雷(BLM)'))
+                if data.gauge.foul_count > 0 and need_use_foul:
+                    if data.me.level >= 80:
+                        return UseAbility(a('异言(BLM)'))
+                    return UseAbility(a('秽浊(BLM)'))
                 if data.me.level >= 60:
                     if need_fire or data.gauge.umbral_stacks < 3:
+                        if data.gauge.polygot_active > 0:
+                            return UseAbility(a('悖论(BLM)'), wait_until = lambda: data.gauge.umbral_stacks > 0)
+                        if s('火苗') in data.effects:
+                            return UseAbility(a('爆炎(BLM)'), wait_until = lambda: data.gauge.umbral_stacks > 0)                        
                         return UseAbility(a('火炎(BLM)'), wait_until = lambda: data.gauge.umbral_stacks > 0)
                     elif data.gauge.umbral_stacks == 3:
                         return UseAbility(a('炽炎(BLM)'), wait_until = lambda: data.gauge.umbral_stacks > 0)
                 if s('火苗') in data.effects:
                     return UseAbility(a('爆炎(BLM)'), wait_until = lambda: data.gauge.umbral_stacks > 0)
                 return UseAbility(a('火炎(BLM)'), wait_until = lambda: data.gauge.umbral_stacks > 0)
-            elif data.me.current_mp > 800 and not need_fire and data.me.level >= 72:
+            elif data.me.current_mp >= 800 and data.me.level >= 72:
                 return UseAbility(a('绝望(BLM)'), wait_until = lambda: data.gauge.umbral_stacks > 0)
             else:
                 if aoe_cnt > 2:
+                    if data.me.level >= 82:
+                        return UseAbility(a('高冰冻(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks < 0)
                     return UseAbility(a('冰冻(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks < 0)
                 elif data.me.level >= 35:
                     return UseAbility(a('冰封(BLM)'), wait_until = lambda: data.gauge.umbral_stacks < 0)
@@ -77,25 +113,46 @@ class BlackMageStrategy(Strategy):
             if data.me.current_mp < 8000:
                 if data.gauge.umbral_hearts == 0:
                     if aoe_cnt > 2:
-                        if need_aoedot2:
-                            return UseAbility(a('霹雷(BLM)'), aoe_target.id, wait_until=lambda: s('霹雷(0)') in data.refresh_cache('t_effect'))
-                        if need_aoedot1:
-                            return UseAbility(a('震雷(BLM)'), aoe_target.id, wait_until=lambda: s('震雷(0)') in data.refresh_cache('t_effect'))
+                        if data.gauge.foul_count > 0:
+                            return UseAbility(a('秽浊(BLM)'), aoe_target.id)                        
+                        if data.ttk(aoe_target) > 15 and target_has_dots(data, aoe_target, blm_dot) < 5 and data.last_action != (a('霹雷(BLM)') or a('震雷(BLM)')):
+                            if data.me.level >= 64:
+                                return UseAbility(a('霹雷(BLM)'), aoe_target.id)
+                            if data.me.level >= 26:
+                                return UseAbility(a('震雷(BLM)'), aoe_target.id)
                         if data.me.level >= 40:
                             return UseAbility(a('玄冰(BLM)'), aoe_target.id)
-                    if need_singledot2:
-                        return UseAbility(a('暴雷(BLM)'), wait_until=lambda: s('暴雷') in data.refresh_cache('t_effect'))
-                    if need_singledot1:
-                        return UseAbility(a('闪雷(BLM)'), wait_until=lambda: s('闪雷(0)') in data.refresh_cache('t_effect'))  
+                        if data.me.level >= 82:
+                            return UseAbility(a('高冰冻(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks < 0)                    
+                        return UseAbility(a('冰冻(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks < 0)                            
+                    if data.gauge.foul_count > 0 and need_use_foul:
+                        if data.me.level >= 80:
+                            return UseAbility(a('异言(BLM)'))
+                        return UseAbility(a('秽浊(BLM)'))
+                    if data.ttk(single_target) > 9 and target_has_dots(data, single_target, blm_dot) < 5 and data.last_action != (a('暴雷(BLM)') or a('闪雷(BLM)')):
+                        if data.me.level >= 45:
+                            return UseAbility(a('暴雷(BLM)'))
+                        if data.me.level >= 6:
+                            return UseAbility(a('闪雷(BLM)'))
                     if data.me.level >= 58:
-                        return UseAbility(a('冰澈(BLM)'))                                          
+                        return UseAbility(a('冰澈(BLM)'))
+                    if data.gauge.polygot_active > 0:
+                        return UseAbility(a('悖论(BLM)'))
+                    if data.last_action == a('悖论(BLM)'):
+                        return UseAbility(a('爆炎(BLM)'))                                          
                     return UseAbility(a('冰结(BLM)'))
                 else:
                     if aoe_cnt > 2 and data.me.level >= 12:
-                        return UseAbility(a('冰结(BLM)'), aoe_target.id)
+                        return UseAbility(a('冰冻(BLM)'), aoe_target.id)
+                    if data.gauge.polygot_active > 0:
+                        return UseAbility(a('悖论(BLM)'))
+                    if data.last_action == a('悖论(BLM)'):
+                        return UseAbility(a('爆炎(BLM)'))                          
                     return UseAbility(a('冰结(BLM)'))
             else:
                 if aoe_cnt > 2 and data.me.level >= 18:
+                    if data.me.level >= 82:
+                        return UseAbility(a('高烈炎(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks > 0)                    
                     return UseAbility(a('烈炎(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks > 0)
                 elif data.me.level >= 35:
                     return UseAbility(a('爆炎(BLM)'), wait_until = lambda: data.gauge.umbral_stacks > 0)
@@ -103,10 +160,14 @@ class BlackMageStrategy(Strategy):
         if data.gauge.umbral_stacks == 0 and (not data.is_moving or s('三连咏唱') in data.effects):
             if aoe_cnt > 2:
                 if data.me.level >= 18:
+                    if data.me.level >= 82:
+                        return UseAbility(a('高烈炎(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks > 0)                    
                     return UseAbility(a('烈炎(BLM)'), aoe_target.id)
                 elif data.me.level >= 12:
-                    return UseAbility(a('冰冻(BLM)'), aoe_target.id)
-            if data.me.level >= 35:
+                    if data.me.level >= 82:
+                        return UseAbility(a('高冰冻(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks < 0)                    
+                    return UseAbility(a('冰冻(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks < 0)
+            if data.me.level >= 35 and data.last_action != a('爆炎(BLM)'):
                 return UseAbility(a('爆炎(BLM)'), wait_until = lambda: data.gauge.umbral_stacks != 0)
             else:
                 return UseAbility(a('火炎(BLM)'), wait_until = lambda: data.gauge.umbral_stacks != 0)
@@ -116,6 +177,9 @@ class BlackMageStrategy(Strategy):
         if data.gauge.umbral_ms < 0.6*1000 and data.gauge.umbral_stacks != 0 :
             if data.me.level >= 4:
                 return UseAbility(a('星灵移位(BLM)'))
-        if data.is_moving and data.me.level >= 66 and data[a('三连咏唱(BLM)')] < 60:
+        if data.is_moving and data.me.level >= 66 and data[a('三连咏唱(BLM)')] < 60 and s('三连咏唱') not in data.effects:
             return UseAbility(a('三连咏唱(BLM)'), wait_until=lambda: s('三连咏唱') in data.refresh_cache('effects'))
-
+        if not data[a('详述(BLM)')]:
+            return UseAbility(a('详述(BLM)'))
+        if data[a('激情咏唱(BLM)')] < 60 and s('激情咏唱') not in data.effects:
+            return UseAbility(a('激情咏唱(BLM)'), wait_until=lambda: s('激情咏唱') in data.refresh_cache('effects')) 

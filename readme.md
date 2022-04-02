@@ -22,8 +22,4 @@ How to add a new strategy to your XivCombat
 
 **DRG:** complete
 
-**BLM**: complete except dot and foul/xeon (haven't tested above lv 70)
-
-known issue:
-
-blm will cast twice thunder when need dot
+**BLM**: complete
