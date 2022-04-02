@@ -66,6 +66,14 @@ class Status2972(Status):
     names = ['死亡祭祀', 'Bloodsown Circle']
 
 
+class Status2592(Status):
+    # 从可以发动大丰收
+    #
+    # related: [大丰收(RPR)](Action24385),
+    id = 2592
+    names = ['死亡祭品', 'Immortal Sacrifice']
+
+
 class Status2594(Status):
     # 可以发动收获月
     # Able to execute Harvest Moon.
@@ -79,7 +87,7 @@ class Status2593(Status):
     # Playing host to an avatar.
     # related: [夜游魂衣(RPR)](Action24394), [虚无收割(RPR)](Action24395), [交错收割(RPR)](Action24396), [阴冷收割(RPR)](Action24397), [团契(RPR)](Action24398), [团契(pvp)(RPR)](Action27807), [夜游魂衣(pvp)(RPR)](Action27821),
     id = 2593
-    names = ['夜游魂(0)', 'Enshrouded(0)']
+    names = ['夜游魂', 'Enshrouded']
 
 
 class Status2863(Status):
@@ -111,7 +119,7 @@ class Status2590(Status):
     # Next Void Reaping will deal increased damage.
     # related: [虚无收割(RPR)](Action24395), [交错收割(RPR)](Action24396), [虚无收割(pvp)(RPR)](Action27800), [交错收割(pvp)(RPR)](Action27801),
     id = 2590
-    names = ['虚无收割效果提高(1)', 'Enhanced Void Reaping(1)']
+    names = ['虚无收割效果提高', 'Enhanced Void Reaping(1)']
 
 
 class Status2591(Status):
@@ -119,7 +127,7 @@ class Status2591(Status):
     # Next Cross Reaping will deal increased damage.
     # related: [虚无收割(RPR)](Action24395), [交错收割(RPR)](Action24396), [虚无收割(pvp)(RPR)](Action27800), [交错收割(pvp)(RPR)](Action27801),
     id = 2591
-    names = ['交错收割效果提高(1)', 'Enhanced Cross Reaping(1)']
+    names = ['交错收割效果提高', 'Enhanced Cross Reaping']
 
 
 class Status2595(Status):

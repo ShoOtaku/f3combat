@@ -16,16 +16,14 @@ How to add a new strategy to your XivCombat
 
 **Any question or advice is welcome**
 
-
 **Current FCR Status:**
 
+**MNK:** Almost Complete [need opt a lot]
 
-        
-**Melee DPS: **
+**DRG:** complete
 
-**MNK:** Almost Complete [need opt]
-        
-**DRG:** complete GCD
-        
+**BLM**: complete except dot and foul/xeon (haven't tested above lv 70)
 
-        
+known issue:
+
+blm will cast twice thunder when need dot

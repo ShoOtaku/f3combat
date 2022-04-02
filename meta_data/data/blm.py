@@ -61,6 +61,10 @@ class Status867(Status):
     id = 867
     names = ['激情咏唱', 'Sharpcast']
 
+class Status165(Status):
+
+    id = 165
+    names = ['火苗']
 
 class Status1211(Status):
     # 咏唱魔法不需要咏唱时间
@@ -116,7 +120,10 @@ class Status2960(Status):
     # related: [高烈炎(BLM)](Action25794), 
     id = 2960
     names = ['核爆效果提高', 'Enhanced Flare']
+class Status1210(Status):
 
+    id = 1210
+    names = ['霹雷(0)', 'Thunder IV(0)']
 
 class Action141(Action):
     # 对目标发动火属性魔法攻击

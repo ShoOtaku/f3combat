@@ -4,23 +4,23 @@ from ._base import *
 class Status116(Status):
     # 下次发动的战技必定打出暴击，并且附带吸收体力的效果
     # Next weaponskill will result in a critical hit with a portion of the resulting damage being absorbed as HP.
-    # related: [龙剑(DRG)](Action83), [龙剑(pvp)(DRG)](Action18920), 
+    # related: [龙剑(DRG)](Action83), [龙剑(pvp)(DRG)](Action18920),
     id = 116
-    names = ['龙剑(0)', 'Life Surge(0)']
+    names = ['龙剑', 'Life Surge']
 
 
 class Status2175(Status):
     # 下次发动的战技造成的伤害提高
     # Next weaponskill will deal increased damage.
-    # related: [龙剑(DRG)](Action83), [龙剑(pvp)(DRG)](Action18920), 
+    # related: [龙剑(DRG)](Action83), [龙剑(pvp)(DRG)](Action18920),
     id = 2175
-    names = ['龙剑(1)', 'Life Surge(1)']
+    names = ['龙剑(pvp)', 'Life Surge(pvp)']
 
 
 class Status1864(Status):
     # 攻击所造成的伤害提高
     # Damage dealt is increased.
-    # related: [猛枪(DRG)](Action85), 
+    # related: [猛枪(DRG)](Action85),
     id = 1864
     names = ['猛枪', 'Lance Charge']
 
@@ -28,7 +28,7 @@ class Status1864(Status):
 class Status120(Status):
     # 下次发动跳跃或破碎冲的伤害提高
     # Damage is increased for next Jump or Spineshatter Dive.
-    # related: [开膛枪(DRG)](Action87), [音速刺(DRG)](Action7397), 
+    # related: [开膛枪(DRG)](Action87), [音速刺(DRG)](Action7397),
     id = 120
     names = ['龙枪(0)', 'Power Surge(0)']
 
@@ -36,7 +36,7 @@ class Status120(Status):
 class Status121(Status):
     # 突刺耐性降低
     # Piercing resistance is reduced.
-    # related: [开膛枪(DRG)](Action87), 
+    # related: [开膛枪(DRG)](Action87),
     id = 121
     names = ['开膛枪(0)', 'Disembowel(0)']
 
@@ -44,7 +44,7 @@ class Status121(Status):
 class Status1914(Status):
     # 攻击所造成的伤害提高
     # Damage dealt is increased.
-    # related: [开膛枪(DRG)](Action87), 
+    # related: [开膛枪(DRG)](Action87),
     id = 1914
     names = ['开膛枪(1)', 'Disembowel(1)']
 
@@ -52,7 +52,7 @@ class Status1914(Status):
 class Status2720(Status):
     # 攻击所造成的伤害提高
     # Damage dealt is increased.
-    # related: [开膛枪(DRG)](Action87), [音速刺(DRG)](Action7397), 
+    # related: [开膛枪(DRG)](Action87), [音速刺(DRG)](Action7397),
     id = 2720
     names = ['龙枪(1)', 'Power Surge(1)']
 
@@ -60,7 +60,7 @@ class Status2720(Status):
 class Status1312(Status):
     # 受到持续伤害，持续时间中受到为自己附加此状态的玩家的攻击时伤害增加
     # Sustaining damage over time, as well as increased damage from target who executed Chaos Thrust.
-    # related: [樱花怒放(DRG)](Action88), 
+    # related: [樱花怒放(DRG)](Action88),
     id = 1312
     names = ['樱花怒放(0)', 'Chaos Thrust(0)']
 
@@ -68,7 +68,7 @@ class Status1312(Status):
 class Status118(Status):
     # 体力逐渐减少
     # Wounds are bleeding, causing damage over time.
-    # related: [樱花怒放(DRG)](Action88), 
+    # related: [樱花怒放(DRG)](Action88),
     id = 118
     names = ['樱花怒放(1)', 'Chaos Thrust(1)']
 
@@ -76,7 +76,7 @@ class Status118(Status):
 class Status802(Status):
     # 可以发动龙牙龙爪
     # Able to execute Fang and Claw.
-    # related: [龙牙龙爪(DRG)](Action3554), 
+    # related: [龙牙龙爪(DRG)](Action3554),
     id = 802
     names = ['龙牙龙爪预备', 'Sharper Fang and Claw']
 
@@ -84,7 +84,7 @@ class Status802(Status):
 class Status803(Status):
     # 可以发动龙尾大回旋
     # Able to execute Wheeling Thrust.
-    # related: [龙尾大回旋(DRG)](Action3556), 
+    # related: [龙尾大回旋(DRG)](Action3556),
     id = 803
     names = ['龙尾大回旋预备', 'Enhanced Wheeling Thrust']
 
@@ -92,7 +92,7 @@ class Status803(Status):
 class Status786(Status):
     # 暴击发动率提高
     # Critical hit rate is increased.
-    # related: [战斗连祷(DRG)](Action3557), 
+    # related: [战斗连祷(DRG)](Action3557),
     id = 786
     names = ['战斗连祷(0)', 'Battle Litany(0)']
 
@@ -100,7 +100,7 @@ class Status786(Status):
 class Status1414(Status):
     # 造成的伤害提高
     # Damage dealt is increased.
-    # related: [战斗连祷(DRG)](Action3557), 
+    # related: [战斗连祷(DRG)](Action3557),
     id = 1414
     names = ['战斗连祷(1)', 'Battle Litany(1)']
 
@@ -108,7 +108,7 @@ class Status1414(Status):
 class Status1184(Status):
     # 攻击所造成的伤害提高
     # Damage dealt is increased.
-    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032), 
+    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032),
     id = 1184
     names = ['巨龙左眼(0)', 'Left Eye(0)']
 
@@ -116,7 +116,7 @@ class Status1184(Status):
 class Status1910(Status):
     # 攻击所造成的伤害提高
     # Damage dealt is increased.
-    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032), 
+    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032),
     id = 1910
     names = ['巨龙右眼(0)', 'Right Eye(0)']
 
@@ -124,7 +124,7 @@ class Status1910(Status):
 class Status1453(Status):
     # 攻击所造成的伤害提高
     # Damage dealt is increased.
-    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032), 
+    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032),
     id = 1453
     names = ['巨龙右眼(1)', 'Right Eye(1)']
 
@@ -132,7 +132,7 @@ class Status1453(Status):
 class Status1454(Status):
     # 攻击所造成的伤害提高
     # Damage dealt is increased.
-    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032), 
+    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032),
     id = 1454
     names = ['巨龙左眼(1)', 'Left Eye(1)']
 
@@ -140,7 +140,7 @@ class Status1454(Status):
 class Status1183(Status):
     # 攻击所造成的伤害提高
     # Damage dealt is increased.
-    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032), 
+    # related: [巨龙视线(DRG)](Action7398), [巨龙视线(pvp)(DRG)](Action10032),
     id = 1183
     names = ['巨龙右眼(2)', 'Right Eye(2)']
 
@@ -148,7 +148,7 @@ class Status1183(Status):
 class Status1243(Status):
     # 可以发动幻象冲
     # Able to execute Mirage Dive.
-    # related: [幻象冲(DRG)](Action7399), [高跳(DRG)](Action16478), 
+    # related: [幻象冲(DRG)](Action7399), [高跳(DRG)](Action16478),
     id = 1243
     names = ['幻象冲预备', 'Dive Ready']
 
@@ -156,7 +156,7 @@ class Status1243(Status):
 class Status736(Status):
     # 跳跃和破碎冲的威力提高
     # Potency of Jump and Spineshatter Dive are increased.
-    # related: [死者之岸(pvp)(DRG)](Action8806), [龙眼雷电(pvp)(DRG)](Action18916), [死天枪(pvp)(DRG)](Action18917), 
+    # related: [死者之岸(pvp)(DRG)](Action8806), [龙眼雷电(pvp)(DRG)](Action18916), [死天枪(pvp)(DRG)](Action18917),
     id = 736
     names = ['苍天龙血', 'Blood of the Dragon']
 
@@ -164,7 +164,7 @@ class Status736(Status):
 class Status1863(Status):
     # 可以发动龙眼雷电(job==22?(level>=82?或龙眼苍穹:):)
     # Able to execute Raiden Thrust(job==22?(level>=82? and Draconian Fury:):).
-    # related: [龙眼雷电(DRG)](Action16479), [龙眼苍穹(DRG)](Action25770), 
+    # related: [龙眼雷电(DRG)](Action16479), [龙眼苍穹(DRG)](Action25770),
     id = 1863
     names = ['龙眼', 'Draconian Fire']
 
@@ -172,7 +172,7 @@ class Status1863(Status):
 class Status2719(Status):
     # 体力逐渐减少
     # Sustaining damage over time.
-    # related: [樱花缭乱(DRG)](Action25772), 
+    # related: [樱花缭乱(DRG)](Action25772),
     id = 2719
     names = ['樱花缭乱', 'Chaotic Spring']
 
@@ -214,7 +214,7 @@ class Action83(Action):
     # Effect cannot be applied to damage over time.
     # Additional Effect: Absorbs a portion of damage dealt as HP(job==22?(level>=88?
     # Maximum Charges: 2:):)
-    # related: [龙剑(0)](Status116), [龙剑(1)](Status2175), 
+    # related: [龙剑(0)](Status116), [龙剑(1)](Status2175),
     id = 83
     names = ['龙剑(DRG)', 'Life Surge(DRG)']
     _orig_names = ['龙剑', 'Life Surge']
@@ -247,7 +247,7 @@ class Action85(Action):
     # 持续时间：20秒
     # Increases damage dealt by 10%.
     # Duration: 20s
-    # related: [猛枪](Status1864), 
+    # related: [猛枪](Status1864),
     id = 85
     names = ['猛枪(DRG)', 'Lance Charge(DRG)']
     _orig_names = ['猛枪', 'Lance Charge']
@@ -279,7 +279,7 @@ class Action87(Action):
     # Combo Bonus: Grants Power Surge
     # Power Surge Effect: Increases damage dealt by 10%
     # Duration: 30s
-    # related: [龙枪(0)](Status120), [开膛枪(0)](Status121), [开膛枪(1)](Status1914), [龙枪(1)](Status2720), 
+    # related: [龙枪(0)](Status120), [开膛枪(0)](Status121), [开膛枪(1)](Status1914), [龙枪(1)](Status2720),
     id = 87
     names = ['Disembowel(DRG)', '开膛枪(DRG)']
     _orig_names = ['开膛枪', 'Disembowel']
@@ -313,7 +313,7 @@ class Action88(Action):
     # Combo Bonus: Grants Enhanced Wheeling Thrust
     # Duration: 30s
     # Effect of Enhanced Wheeling Thrust ends upon execution of any melee weaponskill.:):)
-    # related: [樱花怒放(0)](Status1312), [樱花怒放(1)](Status118), 
+    # related: [樱花怒放(0)](Status1312), [樱花怒放(1)](Status118),
     id = 88
     names = ['樱花怒放(DRG)', 'Chaos Thrust(DRG)']
     _orig_names = ['樱花怒放', 'Chaos Thrust']
@@ -396,7 +396,7 @@ class Action3554(Action):
     # Delivers an attack with a potency of 260.
     # 300 when executed from a target's flank.
     # Can only be executed while under the effect of Sharper Fang and Claw.
-    # related: [龙牙龙爪预备](Status802), 
+    # related: [龙牙龙爪预备](Status802),
     id = 3554
     names = ['龙牙龙爪(DRG)', 'Fang and Claw(DRG)']
     _orig_names = ['Fang and Claw', '龙牙龙爪']
@@ -428,7 +428,7 @@ class Action3556(Action):
     # Delivers an attack with a potency of 260.
     # 300 when executed from a target's rear.
     # Can only be executed while under the effect of Enhanced Wheeling Thrust.
-    # related: [龙尾大回旋预备](Status803), 
+    # related: [龙尾大回旋预备](Status803),
     id = 3556
     names = ['Wheeling Thrust(DRG)', '龙尾大回旋(DRG)']
     _orig_names = ['龙尾大回旋', 'Wheeling Thrust']
@@ -441,7 +441,7 @@ class Action3557(Action):
     # 持续时间：15秒
     # Increases critical hit rate of self and nearby party members by 10%.
     # Duration: 15s
-    # related: [战斗连祷(0)](Status786), [战斗连祷(1)](Status1414), 
+    # related: [战斗连祷(0)](Status786), [战斗连祷(1)](Status1414),
     id = 3557
     names = ['Battle Litany(DRG)', '战斗连祷(DRG)']
     _orig_names = ['战斗连祷', 'Battle Litany']
@@ -461,7 +461,7 @@ class Action7397(Action):
     # Combo Bonus: Grants Power Surge
     # Power Surge Effect: Increases damage dealt by 10%
     # Duration: 30s
-    # related: [龙枪(0)](Status120), [龙枪(1)](Status2720), 
+    # related: [龙枪(0)](Status120), [龙枪(1)](Status2720),
     id = 7397
     names = ['Sonic Thrust(DRG)', '音速刺(DRG)']
     _orig_names = ['Sonic Thrust', '音速刺']
@@ -479,7 +479,7 @@ class Action7398(Action):
     # 持续时间：20秒
     # Grants Right Eye to self, increasing damage dealt by 10%. Also grants target party member Left Eye, increasing damage dealt by 5%.
     # Duration: 20s
-    # related: [巨龙左眼(0)](Status1184), [巨龙右眼(0)](Status1910), [巨龙右眼(1)](Status1453), [巨龙左眼(1)](Status1454), [巨龙右眼(2)](Status1183), 
+    # related: [巨龙左眼(0)](Status1184), [巨龙右眼(0)](Status1910), [巨龙右眼(1)](Status1453), [巨龙左眼(1)](Status1454), [巨龙右眼(2)](Status1183),
     id = 7398
     names = ['Dragon Sight(DRG)', '巨龙视线(DRG)']
     _orig_names = ['巨龙视线', 'Dragon Sight']
@@ -494,7 +494,7 @@ class Action7399(Action):
     # Delivers an attack with a potency of 200.
     # (level>=70?(job==22?Additional Effect: Strengthens the gaze of your Dragon Gauge by 1
     # :):)Can only be executed when Dive Ready.
-    # related: [幻象冲预备](Status1243), 
+    # related: [幻象冲预备](Status1243),
     id = 7399
     names = ['Mirage Dive(DRG)', '幻象冲(DRG)']
     _orig_names = ['Mirage Dive', '幻象冲']
@@ -600,7 +600,7 @@ class Action8803(Action):
     # 向身后跳出15米距离
     # 追加效果：加重、止步和死斗状态下会同时解除上述状态
     # Executes a jump to a location 15 yalms behind you, while removing any Heavy, Bind, or Holmgang effects.
-    # related: [死斗(2)](Status88), [死斗(3)](Status409), [死斗(1)](Status1305), [死斗(0)](Status1304), 
+    # related: [死斗(2)](Status88), [死斗(3)](Status409), [死斗(1)](Status1305), [死斗(0)](Status1304),
     id = 8803
     names = ['Elusive Jump(pvp)(DRG)', '回避跳跃(pvp)(DRG)']
     _orig_names = ['回避跳跃(pvp)', 'Elusive Jump(pvp)']
@@ -637,7 +637,7 @@ class Action8806(Action):
     # Can only be executed while under the effect of Life of the Dragon.
     # Dragon Gauge Cost: 2
     # ※This action cannot be assigned to a hotbar.
-    # related: [苍天龙血](Status736), 
+    # related: [苍天龙血](Status736),
     id = 8806
     names = ['Nastrond(pvp)(DRG)', '死者之岸(pvp)(DRG)']
     _orig_names = ['死者之岸(pvp)', 'Nastrond(pvp)']
@@ -651,7 +651,7 @@ class Action10032(Action):
     # 持续时间：10秒
     # Grants Right Eye to self and Left Eye to target party member, increasing your damage dealt by 10% and the target party member's damage dealt by 10%.
     # Duration: 10s
-    # related: [巨龙左眼(0)](Status1184), [巨龙右眼(0)](Status1910), [巨龙右眼(1)](Status1453), [巨龙左眼(1)](Status1454), [巨龙右眼(2)](Status1183), 
+    # related: [巨龙左眼(0)](Status1184), [巨龙右眼(0)](Status1910), [巨龙右眼(1)](Status1453), [巨龙左眼(1)](Status1454), [巨龙右眼(2)](Status1183),
     id = 10032
     names = ['巨龙视线(pvp)(DRG)', 'Dragon Sight(pvp)(DRG)']
     _orig_names = ['巨龙视线(pvp)', 'Dragon Sight(pvp)']
@@ -689,7 +689,7 @@ class Action16478(Action):
     # Additional Effect: Grants Dive Ready
     # Duration: 15s
     # Cannot be executed while bound.
-    # related: [幻象冲预备](Status1243), 
+    # related: [幻象冲预备](Status1243),
     id = 16478
     names = ['高跳(DRG)', 'High Jump(DRG)']
     _orig_names = ['High Jump', '高跳']
@@ -706,7 +706,7 @@ class Action16479(Action):
     # (job==22?(level>=90?Additional Effect: Sharpens the Firstminds' Focus by 1
     # :):)Can only be executed while under the effect of Draconian Fire.
     # ※This action cannot be assigned to a hotbar.
-    # related: [龙眼](Status1863), 
+    # related: [龙眼](Status1863),
     id = 16479
     names = ['Raiden Thrust(DRG)', '龙眼雷电(DRG)']
     _orig_names = ['Raiden Thrust', '龙眼雷电']
@@ -735,7 +735,7 @@ class Action17728(Action):
     # 攻击之后回到原位
     # 追加效果：幻象冲的复唱时间缩短15秒
     # 止步状态下无法发动
-    # 
+    #
     # Delivers a jumping attack with a potency of 2,000. Returns you to your original position after the attack is made.
     # Additional Effect: Reduces the recast time of Mirage Dive by 15 seconds
     # Cannot be executed while bound.
@@ -785,7 +785,7 @@ class Action18916(Action):
     # Additional Effect: Grants Blood of the Dragon if not currently under the effect of Life of the Dragon
     # Duration: 15s
     # ※This action cannot be assigned to a hotbar.
-    # related: [苍天龙血](Status736), 
+    # related: [苍天龙血](Status736),
     id = 18916
     names = ['Raiden Thrust(pvp)(DRG)', '龙眼雷电(pvp)(DRG)']
     _orig_names = ['龙眼雷电(pvp)', 'Raiden Thrust(pvp)']
@@ -802,7 +802,7 @@ class Action18917(Action):
     # Additional Effect: Grants Blood of the Dragon if not currently under the effect of Life of the Dragon
     # Duration: 15s
     # ※This action cannot be assigned to a hotbar.
-    # related: [苍天龙血](Status736), 
+    # related: [苍天龙血](Status736),
     id = 18917
     names = ['Doom Spike(pvp)(DRG)', '死天枪(pvp)(DRG)']
     _orig_names = ['Doom Spike(pvp)', '死天枪(pvp)']
@@ -852,7 +852,7 @@ class Action18920(Action):
     # Increases potency of next weaponskill by 50%.
     # Duration: 5s
     # Maximum Charges: 2
-    # related: [龙剑(0)](Status116), [龙剑(1)](Status2175), 
+    # related: [龙剑(0)](Status116), [龙剑(1)](Status2175),
     id = 18920
     names = ['龙剑(pvp)(DRG)', 'Life Surge(pvp)(DRG)']
     _orig_names = ['Life Surge(pvp)', '龙剑(pvp)']
@@ -868,7 +868,7 @@ class Action25770(Action):
     # (job==22?(level>=90?Additional Effect: Sharpens the Firstminds' Focus by 1
     # :):)Can only be executed while under the effect of Draconian Fire.
     # ※This action cannot be assigned to a hotbar.
-    # related: [龙眼](Status1863), 
+    # related: [龙眼](Status1863),
     id = 25770
     names = ['Draconian Fury(DRG)', '龙眼苍穹(DRG)']
     _orig_names = ['龙眼苍穹', 'Draconian Fury']
@@ -921,7 +921,7 @@ class Action25772(Action):
     # Combo Bonus: Grants Enhanced Wheeling Thrust
     # Duration: 30s
     # Effect of Enhanced Wheeling Thrust ends upon execution of any melee weaponskill.
-    # related: [樱花缭乱](Status2719), 
+    # related: [樱花缭乱](Status2719),
     id = 25772
     names = ['樱花缭乱(DRG)', 'Chaotic Spring(DRG)']
     _orig_names = ['樱花缭乱', 'Chaotic Spring']
