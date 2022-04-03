@@ -25,9 +25,16 @@ def target_has_dots(data, actor, dots):
     return 0
 class BlackMageStrategy(Strategy):
     name = 'ot/blm'
+    fight_only = False  #非战斗也执行策略，目的是为了保持冰火状态（76级以上在战斗外使用灵极魂）
     job = 'BlackMage'
 
     def global_cool_down_ability(self, data: 'LogicData') -> UseAbility | UseItem | UseCommon | None:
+        #没有目标或者目标大于25米且在冰状态且时间小于7s时，使用灵极魂
+        if data.gauge.umbral_stacks < 0 and data.gauge.umbral_ms < 7*1000 and data.me.level >= 76 and (not data.target or data.target_distance >= 25) :
+            return UseAbility(a('灵极魂(BLM)'))
+        #若没有有效敌人（不在战斗中），则不执行下面的语句    
+        if not data.valid_enemies:  
+            return
         if data.target and data.target_distance <= 25:
             single_target = data.target
             single_distance = data.target_distance
@@ -41,8 +48,8 @@ class BlackMageStrategy(Strategy):
         else:
             aoe_target, aoe_cnt = single_target, 0
         need_fire = data.gauge.umbral_ms < 6*1000
-        need_use_foul = data.gauge.next_polyglot_ms < 6*1000
-#移动中用瞬发        
+        need_use_foul = data.gauge.next_polyglot_ms < 10*1000
+        #移动中用瞬发        
         if data.is_moving and s('三连咏唱') not in data.effects:
             if data.gauge.foul_count > 0 and data.me.level >= 80:
                 if aoe_cnt > 2:
@@ -62,7 +69,7 @@ class BlackMageStrategy(Strategy):
                 return UseAbility(a('悖论(BLM)'))
 
 
-#火状态
+        #火状态
         if data.gauge.umbral_stacks > 0 and (not data.is_moving or s('三连咏唱') in data.effects):      
             if data.me.current_mp >= 1600:
                 if aoe_cnt > 2 and data.me.level > 18 and data.me.current_mp >= 3000:
@@ -108,7 +115,7 @@ class BlackMageStrategy(Strategy):
                     return UseAbility(a('冰冻(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks < 0)
                 elif data.me.level >= 35:
                     return UseAbility(a('冰封(BLM)'), wait_until = lambda: data.gauge.umbral_stacks < 0)
-#冰状态                    
+        #冰状态                    
         if data.gauge.umbral_stacks < 0 and (not data.is_moving or s('三连咏唱') in data.effects):
             if data.me.current_mp < 8000:
                 if data.gauge.umbral_hearts == 0:
@@ -156,7 +163,7 @@ class BlackMageStrategy(Strategy):
                     return UseAbility(a('烈炎(BLM)'), aoe_target.id, wait_until = lambda: data.gauge.umbral_stacks > 0)
                 elif data.me.level >= 35:
                     return UseAbility(a('爆炎(BLM)'), wait_until = lambda: data.gauge.umbral_stacks > 0)
-        
+        #初始状态（无冰无火）
         if data.gauge.umbral_stacks == 0 and (not data.is_moving or s('三连咏唱') in data.effects):
             if aoe_cnt > 2:
                 if data.me.level >= 18:
@@ -177,9 +184,18 @@ class BlackMageStrategy(Strategy):
         if data.gauge.umbral_ms < 0.6*1000 and data.gauge.umbral_stacks != 0 :
             if data.me.level >= 4:
                 return UseAbility(a('星灵移位(BLM)'))
+        #若没有有效敌人（不在战斗中），则不执行下面的语句
+        if not data.valid_enemies:
+            return        
         if data.is_moving and data.me.level >= 66 and data[a('三连咏唱(BLM)')] < 60 and s('三连咏唱') not in data.effects:
             return UseAbility(a('三连咏唱(BLM)'), wait_until=lambda: s('三连咏唱') in data.refresh_cache('effects'))
+        if data.is_moving and not data[a('即刻咏唱')] and s('三连咏唱') not in data.effects:
+            return UseAbility(a('即刻咏唱'))
         if not data[a('详述(BLM)')]:
             return UseAbility(a('详述(BLM)'))
         if data[a('激情咏唱(BLM)')] < 60 and s('激情咏唱') not in data.effects:
             return UseAbility(a('激情咏唱(BLM)'), wait_until=lambda: s('激情咏唱') in data.refresh_cache('effects')) 
+        if not data.is_moving and data[a('黑魔纹(BLM)')]:
+            return UseAbility(a('黑魔纹(BLM)'), data.me.id)
+        if data.gauge.umbral_stacks == 0 and data.me.current_mp < 5000:
+            return UseAbility(a('醒梦'), data.me.id)
