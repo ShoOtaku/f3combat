@@ -20,9 +20,9 @@ class DragoonStrategy(Strategy):
                 return UseAbility(a('山境酷刑(DRG)'))
             elif data.target_distance <= 10 and data.me.level >= 82 and s('龙眼') in data.effects:
                 return UseAbility(a('龙眼苍穹(DRG)'))
-            elif data.target_distance <= 10 and data.me.level >= 40:
+            elif data.target_distance <= 10 and data.me.level >= 40 and data.skill_unlocked(a('死天枪(DRG)')):
                 return UseAbility(a('死天枪(DRG)'))
-            elif data.target_distance >=5 and data.target_distance <= 20 and data.me.level >= 15:
+            elif data.target_distance >=5 and data.target_distance <= 20 and data.me.level >= 15 and data.skill_unlocked(a('贯穿尖(DRG)')):
                 return UseAbility(a('贯穿尖(DRG)'))
             else:
                 return None
@@ -30,8 +30,8 @@ class DragoonStrategy(Strategy):
         t_effect = data.target.effects.get_dict(source=data.me.id)
         need_dot1 = (data.me.level >= 50 and data.me.level < 86) and (s('樱花怒放(1)') not in t_effect or t_effect[s('樱花怒放(1)')].timer <= 6) 
         need_dot2 = data.me.level >= 86 and (s('樱花缭乱') not in t_effect or t_effect[s('樱花缭乱')].timer <= 6)
-        can_drg4 = s('龙牙龙爪预备') in data.effects
-        can_drg5 = s('龙尾大回旋预备') in data.effects
+        can_drg4 = s('龙牙龙爪预备') in data.effects and data.skill_unlocked(a('龙牙龙爪(DRG)'))
+        can_drg5 = s('龙尾大回旋预备') in data.effects and data.skill_unlocked(a('龙尾大回旋(DRG)'))
 
         if data.me.level >= 40:
             aoe_target, aoe_cnt = cnt_enemy(data, aoe)
@@ -70,27 +70,27 @@ class DragoonStrategy(Strategy):
     
     def non_global_cool_down_ability(self, data: 'LogicData') -> UseAbility | UseItem | UseCommon | None:
         red_dragoon = data.gauge.stance == 2    
-        if not data[a('猛枪(DRG)')]:
+        if not data[a('猛枪(DRG)')] and data.skill_unlocked(a('猛枪(DRG)')):
             return UseAbility(a('猛枪(DRG)'))
-        if not data[a('战斗连祷(DRG)')]:
+        if not data[a('战斗连祷(DRG)')] and data.skill_unlocked(a('战斗连祷(DRG)')):
             return UseAbility(a('战斗连祷(DRG)'))
-        if not data[a('破碎冲(DRG)')] or data[a('破碎冲(DRG)')] < 60:
+        if data.skill_unlocked(a('破碎冲(DRG)')) and not data[a('破碎冲(DRG)')] or data[a('破碎冲(DRG)')] < 60:
             return UseAbility(a('破碎冲(DRG)'))
-        if not data[a('龙炎冲(DRG)')]:
+        if not data[a('龙炎冲(DRG)')] and data.skill_unlocked(a('龙炎冲(DRG)')):
             return UseAbility(a('龙炎冲(DRG)'))
         if data.me.level >= 30:
             if data.me.level >= 74:
                 if not data[a('高跳(DRG)')] :
                     return UseAbility(a('高跳(DRG)'))
             else:
-                if not data[a('跳跃(DRG)')]:
+                if not data[a('跳跃(DRG)')] and data.skill_unlocked(a('跳跃(DRG)')):
                     return UseAbility(a('跳跃(DRG)'))
         if s('幻象冲预备') in data.effects:
             return UseAbility(a('幻象冲(DRG)'))
-        if not data[a('武神枪(DRG)')]:
+        if not data[a('武神枪(DRG)')] and data.skill_unlocked(a('武神枪(DRG)')):
             return UseAbility(a('武神枪(DRG)')) 
         if red_dragoon :
-            if not data[a('死者之岸(DRG)')]:
+            if not data[a('死者之岸(DRG)')] and data.skill_unlocked(a('死者之岸(DRG)')):
                 return UseAbility(a('死者之岸(DRG)'))
             if data.me.level >= 80 and not data[a('坠星冲(DRG)')]:
                 return UseAbility(a('坠星冲(DRG)'))
