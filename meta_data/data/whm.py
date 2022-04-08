@@ -4,7 +4,7 @@ from ._base import *
 class Status143(Status):
     # 风属性持续伤害，体力逐渐流失
     # Sustaining wind damage over time.
-    # related: [疾风(WHM)](Action121), 
+    # related: [疾风(WHM)](Action121),
     id = 143
     names = ['疾风', 'Aero']
 
@@ -12,7 +12,7 @@ class Status143(Status):
 class Status1140(Status):
     # 可选择在原地复活
     # Teetering on the brink of consciousness.
-    # related: [复活(WHM)](Action125), 
+    # related: [复活(WHM)](Action125),
     id = 1140
     names = ['复活(0)', 'Raise(0)']
 
@@ -20,7 +20,7 @@ class Status1140(Status):
 class Status148(Status):
     # 接受别人发动的复活
     # Teetering on the brink of consciousness.
-    # related: [复活(WHM)](Action125), 
+    # related: [复活(WHM)](Action125),
     id = 148
     names = ['复活(1)', 'Raise(1)']
 
@@ -28,7 +28,7 @@ class Status148(Status):
 class Status144(Status):
     # 风属性持续伤害，体力逐渐流失
     # Sustaining wind damage over time.
-    # related: [烈风(WHM)](Action132), 
+    # related: [烈风(WHM)](Action132),
     id = 144
     names = ['烈风', 'Aero II']
 
@@ -36,7 +36,7 @@ class Status144(Status):
 class Status157(Status):
     # 自动攻击间隔时间缩短，魔法的咏唱时间和复唱时间缩短
     # Spell cast times, recast times, and auto-attack delay are reduced.
-    # related: [神速咏唱(WHM)](Action136), 
+    # related: [神速咏唱(WHM)](Action136),
     id = 157
     names = ['神速咏唱', 'Presence of Mind']
 
@@ -44,7 +44,7 @@ class Status157(Status):
 class Status897(Status):
     # 連続してＨＰが回復している状態。
     # Regenerating HP over time.
-    # related: [再生(WHM)](Action137), 
+    # related: [再生(WHM)](Action137),
     id = 897
     names = ['○削除予定', 'Regen(0)']
 
@@ -52,7 +52,7 @@ class Status897(Status):
 class Status1330(Status):
     # 体力会随时间逐渐恢复
     # Regenerating HP over time.
-    # related: [再生(WHM)](Action137), 
+    # related: [再生(WHM)](Action137),
     id = 1330
     names = ['再生(0)', 'Regen(1)']
 
@@ -60,7 +60,7 @@ class Status1330(Status):
 class Status158(Status):
     # 体力会随时间逐渐恢复
     # Regenerating HP over time.
-    # related: [再生(WHM)](Action137), 
+    # related: [再生(WHM)](Action137),
     id = 158
     names = ['再生(1)', 'Regen(2)']
 
@@ -68,7 +68,7 @@ class Status158(Status):
 class Status739(Status):
     # 产生能够令范围内队员恢复体力的区域
     # A veil of succor is healing party members in the area.
-    # related: [庇护所(WHM)](Action3569), 
+    # related: [庇护所(WHM)](Action3569),
     id = 739
     names = ['庇护所(0)', 'Asylum(0)']
 
@@ -76,7 +76,7 @@ class Status739(Status):
 class Status1911(Status):
     # 产生能够令范围内队员恢复体力的区域
     # A veil of succor is healing party members in the area.
-    # related: [庇护所(WHM)](Action3569), 
+    # related: [庇护所(WHM)](Action3569),
     id = 1911
     names = ['庇护所(1)', 'Asylum(1)']
 
@@ -84,7 +84,7 @@ class Status1911(Status):
 class Status1912(Status):
     # 自身所受的治疗效果提高
     # HP recovery via healing actions is increased.
-    # related: [庇护所(WHM)](Action3569), 
+    # related: [庇护所(WHM)](Action3569),
     id = 1912
     names = ['庇护所(2)', 'Asylum(2)']
 
@@ -92,7 +92,7 @@ class Status1912(Status):
 class Status1217(Status):
     # 下一次发动技能时不会消耗魔力
     # Next spell cast consumes no MP.
-    # related: [无中生有(WHM)](Action7430), 
+    # related: [无中生有(WHM)](Action7430),
     id = 1217
     names = ['无中生有', 'Thin Air']
 
@@ -100,7 +100,7 @@ class Status1217(Status):
 class Status1218(Status):
     # 抵消一定伤害
     # A holy blessing from the gods is nullifying damage.
-    # related: [神祝祷(WHM)](Action7432), 
+    # related: [神祝祷(WHM)](Action7432),
     id = 1218
     names = ['神祝祷(0)', 'Divine Benison(0)']
 
@@ -108,7 +108,7 @@ class Status1218(Status):
 class Status1404(Status):
     # 抵消一定伤害
     # A holy blessing from the gods is nullifying damage.
-    # related: [神祝祷(WHM)](Action7432), 
+    # related: [神祝祷(WHM)](Action7432),
     id = 1404
     names = ['神祝祷(1)', 'Divine Benison(1)']
 
@@ -116,7 +116,7 @@ class Status1404(Status):
 class Status1219(Status):
     # 成为白魔法师全大赦的对象
     # Sins are confessed. Ready for Plenary Indulgence.
-    # related: [全大赦(WHM)](Action7433), 
+    # related: [全大赦(WHM)](Action7433),
     id = 1219
     names = ['告解', 'Confession']
 
@@ -124,7 +124,7 @@ class Status1219(Status):
 class Status2036(Status):
     # 体力会随时间逐渐恢复
     # Regenerating HP over time.
-    # related: [安慰之心(WHM)](Action16531), [安慰之心(pvp)(WHM)](Action17791), 
+    # related: [安慰之心(WHM)](Action16531), [安慰之心(pvp)(WHM)](Action17791),
     id = 2036
     names = ['安慰之心', 'Afflatus Solace']
 
@@ -132,23 +132,23 @@ class Status2036(Status):
 class Status2035(Status):
     # 受到攻击的伤害增加
     # Damage taken is increased.
-    # related: [天辉(WHM)](Action16532), [天辉(pvp)(WHM)](Action17790), 
+    # related: [天辉(WHM)](Action16532), [天辉(pvp)(WHM)](Action17790),
     id = 2035
-    names = ['天辉(0)', 'Dia(0)']
+    names = ['天辉(pvp)', 'Dia(pvp)']
 
 
 class Status1871(Status):
     # 体力逐渐减少
     # Sustaining damage over time.
-    # related: [天辉(WHM)](Action16532), [天辉(pvp)(WHM)](Action17790), 
+    # related: [天辉(WHM)](Action16532), [天辉(pvp)(WHM)](Action17790),
     id = 1871
-    names = ['天辉(1)', 'Dia(1)']
+    names = ['天辉', 'Dia']
 
 
 class Status1872(Status):
     # 治疗魔法的治疗量提高，且减少周围队员受到的伤害
     # Healing magic potency is increased while damage taken by nearby party members is reduced.
-    # related: [节制(WHM)](Action16536), [节制(pvp)(WHM)](Action17794), 
+    # related: [节制(WHM)](Action16536), [节制(pvp)(WHM)](Action17794),
     id = 1872
     names = ['节制(0)', 'Temperance(0)']
 
@@ -156,7 +156,7 @@ class Status1872(Status):
 class Status1873(Status):
     # 减轻所受到的伤害
     # Damage taken is reduced.
-    # related: [节制(WHM)](Action16536), [节制(pvp)(WHM)](Action17794), 
+    # related: [节制(WHM)](Action16536), [节制(pvp)(WHM)](Action17794),
     id = 1873
     names = ['节制(1)', 'Temperance(1)']
 
@@ -164,7 +164,7 @@ class Status1873(Status):
 class Status2037(Status):
     # 发动攻击所造成的伤害及自身发动的体力恢复效果提高，周围队员所受伤害减轻
     # Damage dealt and potency of all HP restoration actions are increased while damage taken by nearby party members is reduced.
-    # related: [节制(WHM)](Action16536), [节制(pvp)(WHM)](Action17794), 
+    # related: [节制(WHM)](Action16536), [节制(pvp)(WHM)](Action17794),
     id = 2037
     names = ['节制(2)', 'Temperance(2)']
 
@@ -172,7 +172,7 @@ class Status2037(Status):
 class Status2038(Status):
     # 减轻所受到的伤害
     # Damage taken is reduced.
-    # related: [节制(WHM)](Action16536), [节制(pvp)(WHM)](Action17794), 
+    # related: [节制(WHM)](Action16536), [节制(pvp)(WHM)](Action17794),
     id = 2038
     names = ['节制(3)', 'Temperance(3)']
 
@@ -180,7 +180,7 @@ class Status2038(Status):
 class Status2708(Status):
     # 减轻所受到的伤害
     # Damage taken is reduced.
-    # related: [水流幕(WHM)](Action25861), 
+    # related: [水流幕(WHM)](Action25861),
     id = 2708
     names = ['水流幕', 'Aquaveil']
 
@@ -188,7 +188,7 @@ class Status2708(Status):
 class Status2709(Status):
     # 受到伤害或持续时间结束时自动发动恢复效果
     # Triggers a healing effect upon taking damage or when duration expires.
-    # related: [礼仪之铃(WHM)](Action25862), 
+    # related: [礼仪之铃(WHM)](Action25862),
     id = 2709
     names = ['礼仪之铃', 'Liturgy of the Bell']
 
@@ -232,7 +232,7 @@ class Action121(Action):
     # Additional Effect: Wind damage over time
     # Potency: 30
     # Duration: 18s
-    # related: [疾风](Status143), 
+    # related: [疾风](Status143),
     id = 121
     names = ['Aero(WHM)', '疾风(WHM)']
     _orig_names = ['疾风', 'Aero']
@@ -254,7 +254,7 @@ class Action124(Action):
 class Action125(Action):
     # 令无法战斗的目标以衰弱状态重新振作起来
     # Resurrects target to a weakened state.
-    # related: [复活(0)](Status1140), [衰弱](Status43), [复活(1)](Status148), 
+    # related: [复活(0)](Status1140), [衰弱](Status43), [复活(1)](Status148),
     id = 125
     names = ['复活(WHM)', 'Raise(WHM)']
     _orig_names = ['复活', 'Raise']
@@ -291,7 +291,7 @@ class Action132(Action):
     # Additional Effect: Wind damage over time
     # Potency: 60
     # Duration: 18s
-    # related: [烈风](Status144), 
+    # related: [烈风](Status144),
     id = 132
     names = ['烈风(WHM)', 'Aero II(WHM)']
     _orig_names = ['烈风', 'Aero II']
@@ -310,7 +310,7 @@ class Action133(Action):
     # Additional Effect: Regen
     # Cure Potency: (job==24?(level>=85?150:100):100)
     # Duration: 15s
-    # related: [医济](Status150), 
+    # related: [医济](Status150),
     id = 133
     names = ['医济(WHM)', 'Medica II(WHM)']
     _orig_names = ['Medica II', '医济']
@@ -334,7 +334,7 @@ class Action136(Action):
     # 持续时间：15秒
     # Reduces spell cast time and recast time, and auto-attack delay by 20%.
     # Duration: 15s
-    # related: [神速咏唱](Status157), 
+    # related: [神速咏唱](Status157),
     id = 136
     names = ['Presence of Mind(WHM)', '神速咏唱(WHM)']
     _orig_names = ['Presence of Mind', '神速咏唱']
@@ -347,7 +347,7 @@ class Action137(Action):
     # Grants healing over time effect to target.
     # Cure Potency: (job==24?(level>=85?250:200):200)
     # Duration: 18s
-    # related: [○削除予定](Status897), [再生(0)](Status1330), [再生(1)](Status158), 
+    # related: [○削除予定](Status897), [再生(0)](Status1330), [再生(1)](Status158),
     id = 137
     names = ['再生(WHM)', 'Regen(WHM)']
     _orig_names = ['Regen', '再生']
@@ -396,7 +396,7 @@ class Action3569(Action):
     # Cure Potency: 100
     # Duration: 24s (job==24?(level>=78?
     # Additional Effect: Increases HP recovery via healing actions on party members in the designated area by 10%:):)
-    # related: [庇护所(0)](Status739), [庇护所(1)](Status1911), [庇护所(2)](Status1912), 
+    # related: [庇护所(0)](Status739), [庇护所(1)](Status1911), [庇护所(2)](Status1912),
     id = 3569
     names = ['Asylum(WHM)', '庇护所(WHM)']
     _orig_names = ['Asylum', '庇护所']
@@ -438,7 +438,7 @@ class Action7430(Action):
     # Next action is executed without MP cost.
     # Duration: 12s
     # Maximum Charges: 2
-    # related: [无中生有](Status1217), 
+    # related: [无中生有](Status1217),
     id = 7430
     names = ['Thin Air(WHM)', '无中生有(WHM)']
     _orig_names = ['Thin Air', '无中生有']
@@ -462,7 +462,7 @@ class Action7432(Action):
     # Creates a barrier around self or target party member that absorbs damage equivalent to a heal of 500 potency.
     # Duration: 15s(job==24?(level>=88?
     # Maximum Charges: 2:):)
-    # related: [神祝祷(0)](Status1218), [神祝祷(1)](Status1404), 
+    # related: [神祝祷(0)](Status1218), [神祝祷(1)](Status1404),
     id = 7432
     names = ['Divine Benison(WHM)', '神祝祷(WHM)']
     _orig_names = ['神祝祷', 'Divine Benison']
@@ -478,7 +478,7 @@ class Action7433(Action):
     # Upon receiving HP recovery via Medica, Medica II, Cure III, or Afflatus Rapture cast by self, Confession triggers an additional healing effect.
     # Cure Potency: 200
     # Duration: 10s
-    # related: [告解](Status1219), [医济](Status150), 
+    # related: [告解](Status1219), [医济](Status150),
     id = 7433
     names = ['全大赦(WHM)', 'Plenary Indulgence(WHM)']
     _orig_names = ['全大赦', 'Plenary Indulgence']
@@ -544,7 +544,7 @@ class Action16531(Action):
     # Cure Potency: (job==24?(level>=85?800:700):700)(job==24?(level>=74?
     # Additional Effect: Nourishes the Blood Lily:):)
     # Healing Gauge Cost: 1 Lily
-    # related: [安慰之心](Status2036), 
+    # related: [安慰之心](Status2036),
     id = 16531
     names = ['安慰之心(WHM)', 'Afflatus Solace(WHM)']
     _orig_names = ['Afflatus Solace', '安慰之心']
@@ -561,7 +561,7 @@ class Action16532(Action):
     # Additional Effect: Unaspected damage over time
     # Potency: 60
     # Duration: 30s
-    # related: [天辉(0)](Status2035), [天辉(1)](Status1871), 
+    # related: [天辉(0)](Status2035), [天辉(1)](Status1871),
     id = 16532
     names = ['Dia(WHM)', '天辉(WHM)']
     _orig_names = ['Dia', '天辉']
@@ -613,7 +613,7 @@ class Action16536(Action):
     # 持续时间：20秒
     # Increases healing magic potency by 20%, while reducing damage taken by self and all party members within a radius of 30 yalms by 10%.
     # Duration: 20s
-    # related: [节制(0)](Status1872), [节制(1)](Status1873), [节制(2)](Status2037), [节制(3)](Status2038), 
+    # related: [节制(0)](Status1872), [节制(1)](Status1873), [节制(2)](Status2037), [节制(3)](Status2038),
     id = 16536
     names = ['Temperance(WHM)', '节制(WHM)']
     _orig_names = ['节制', 'Temperance']
@@ -638,7 +638,7 @@ class Action17790(Action):
     # Deals unaspected damage with a potency of 800.
     # Additional Effect: Increases target's damage taken by 10%
     # Duration: 15s
-    # related: [天辉(0)](Status2035), [天辉(1)](Status1871), 
+    # related: [天辉(0)](Status2035), [天辉(1)](Status1871),
     id = 17790
     names = ['Dia(pvp)(WHM)', '天辉(pvp)(WHM)']
     _orig_names = ['Dia(pvp)', '天辉(pvp)']
@@ -664,7 +664,7 @@ class Action17791(Action):
     # Additional Effect: Nourishes the Blood Lily
     # Healing Gauge Cost: 1 Lily
     # A Lily is granted every 10 seconds while in combat.
-    # related: [安慰之心](Status2036), 
+    # related: [安慰之心](Status2036),
     id = 17791
     names = ['Afflatus Solace(pvp)(WHM)', '安慰之心(pvp)(WHM)']
     _orig_names = ['安慰之心(pvp)', 'Afflatus Solace(pvp)']
@@ -689,7 +689,7 @@ class Action17794(Action):
     # 持续时间：15秒
     # Increases damage dealt and healing potency by 20%, while reducing damage taken by self and all party members within a radius of 30 yalms by 10%.
     # Duration: 15s
-    # related: [节制(0)](Status1872), [节制(1)](Status1873), [节制(2)](Status2037), [节制(3)](Status2038), 
+    # related: [节制(0)](Status1872), [节制(1)](Status1873), [节制(2)](Status2037), [节制(3)](Status2038),
     id = 17794
     names = ['Temperance(pvp)(WHM)', '节制(pvp)(WHM)']
     _orig_names = ['Temperance(pvp)', '节制(pvp)']
@@ -761,7 +761,7 @@ class Action25861(Action):
     # 持续时间：8秒
     # Reduces damage taken by a party member or self by 15%.
     # Duration: 8s
-    # related: [水流幕](Status2708), 
+    # related: [水流幕](Status2708),
     id = 25861
     names = ['Aquaveil(WHM)', '水流幕(WHM)']
     _orig_names = ['水流幕', 'Aquaveil']
@@ -786,7 +786,7 @@ class Action25862(Action):
     # Any remaining stacks of Liturgy of the Bell when effect expires will trigger an additional healing effect.
     # Cure Potency: 200 for every remaining stack of Liturgy of the Bell
     # This action does not share a recast timer with any other actions.
-    # related: [礼仪之铃](Status2709), 
+    # related: [礼仪之铃](Status2709),
     id = 25862
     names = ['礼仪之铃(WHM)', 'Liturgy of the Bell(WHM)']
     _orig_names = ['Liturgy of the Bell', '礼仪之铃']

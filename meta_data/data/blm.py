@@ -64,7 +64,7 @@ class Status867(Status):
 class Status165(Status):
 
     id = 165
-    names = ['火苗']
+    names = ['火苗', 'Firestarter']
 
 class Status1211(Status):
     # 咏唱魔法不需要咏唱时间
