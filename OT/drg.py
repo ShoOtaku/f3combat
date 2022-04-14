@@ -14,7 +14,7 @@ class DragoonStrategy(Strategy):
         if data.target_distance <= 3:
             single_target = data.target
         else:
-            if data.target_distance <= 10 and data.target_distance >= 5 and data.me.level >= 62 and data.combo_id == a('死天枪(DRG)'):
+            if data.target_distance <= 10 and data.target_distance >= 5 and data.me.level >= 62 and (data.combo_id == a('死天枪(DRG)') or data.combo_id == a('龙眼苍穹(DRG)')):
                 return UseAbility(a('音速刺(DRG)'))
             elif data.target_distance <= 10 and data.target_distance >= 5 and data.me.level >= 72 and data.combo_id == a('音速刺(DRG)'):
                 return UseAbility(a('山境酷刑(DRG)'))
@@ -42,7 +42,7 @@ class DragoonStrategy(Strategy):
             return UseAbility(a('龙眼苍穹(DRG)'), aoe_target.id)
         if data.me.level >= 72 and data.combo_id == a('音速刺(DRG)'):
             return UseAbility(a('山境酷刑(DRG)'), aoe_target.id)
-        if data.me.level >= 62 and data.combo_id == a('死天枪(DRG)'):
+        if data.me.level >= 62 and (data.combo_id == a('死天枪(DRG)') or data.combo_id == a('龙眼苍穹(DRG)')):
             return UseAbility(a('音速刺(DRG)'), aoe_target.id)
         if aoe_cnt > 2 and data.me.level >= 40:
             return UseAbility(a('死天枪(DRG)'), aoe_target.id)
@@ -55,17 +55,19 @@ class DragoonStrategy(Strategy):
                 return UseAbility(a('樱花缭乱(DRG)'), single_target.id)
             else:
                 return UseAbility(a('樱花怒放(DRG)'), single_target.id)
-        if need_dot1 and data.combo_id == a('精准刺(DRG)'):
+        if need_dot1 and (data.combo_id == a('精准刺(DRG)') or data.combo_id == a('龙眼雷电(DRG)')):
             return UseAbility(a('开膛枪(DRG)'), single_target.id)
         if need_dot2 and data.combo_id == a('精准刺(DRG)'):
             return UseAbility(a('开膛枪(DRG)'), single_target.id)
-        if data.me.level >= 4 and data.combo_id == a('精准刺'):
+        if data.me.level >= 4 and (data.combo_id == a('精准刺(DRG)') or data.combo_id == a('龙眼雷电(DRG)')):
             return UseAbility(a('贯通刺(DRG)'), single_target.id)
         if data.me.level >= 26 and data.combo_id == a('贯通刺'):
             if data.me.level >= 86:
                 return UseAbility(a('苍穹刺(DRG)'), single_target.id)
             else:
                 return UseAbility(a('直刺(DRG)'), single_target.id)
+        if data.me.level >= 76 and s('龙眼') in data.effects:
+            return UseAbility(a('龙眼雷电(DRG)'), single_target.id)
         return UseAbility(a('精准刺(DRG)'), single_target.id)
     
     def non_global_cool_down_ability(self, data: 'LogicData') -> UseAbility | UseItem | UseCommon | None:
