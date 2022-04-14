@@ -57,7 +57,7 @@ class DragoonStrategy(Strategy):
                 return UseAbility(a('樱花怒放(DRG)'), single_target.id)
         if need_dot1 and (data.combo_id == a('精准刺(DRG)') or data.combo_id == a('龙眼雷电(DRG)')):
             return UseAbility(a('开膛枪(DRG)'), single_target.id)
-        if need_dot2 and data.combo_id == a('精准刺(DRG)'):
+        if need_dot2 and (data.combo_id == a('精准刺(DRG)') or data.combo_id == a('龙眼雷电(DRG)')):
             return UseAbility(a('开膛枪(DRG)'), single_target.id)
         if data.me.level >= 4 and (data.combo_id == a('精准刺(DRG)') or data.combo_id == a('龙眼雷电(DRG)')):
             return UseAbility(a('贯通刺(DRG)'), single_target.id)
