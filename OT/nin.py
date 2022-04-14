@@ -1,8 +1,6 @@
 import time
-from curses.ascii import US
 from functools import cache
 from math import radians
-import re
 from XivCombat.utils import a, s, cnt_enemy, res_lv, find_area_belongs_to_me
 from XivCombat.strategies import *
 from XivCombat import define, api
@@ -29,9 +27,9 @@ def get_mudra(effects: dict):
     return s
 
 m2s = {
-    TEN: a('天之印(NIN)'),
-    CHI: a('地之印(NIN)'),
-    JIN: a('人之印(NIN)')
+    TEN: 2259,
+    CHI: 2261,
+    JIN: 2263,
 }
 
 def c(*mudras: int):
@@ -52,20 +50,23 @@ class NinjaStrategy(Strategy):
     name = 'ot/nin'
     job = 'Ninja'
 
-    def have_effect(self, data: LogicData, effect_id: int, allow_time=2):
+    def __init__(self):
+        self.effects_temp = dict()
+        self.combo = []
+    def have_effect(self, data: 'LogicData', effect_id: int, allow_time=2):
         return effect_id in data.effects or self.effects_temp.setdefault(effect_id, 0) > time.time() - allow_time
 
     def set_effect(self, effect_id: int):
         self.effects_temp[effect_id] = time.time()
 
-    def can_ground(self, data: LogicData):
+    def can_ground(self, data: 'LogicData'):
         return not self.have_effect(data, s('土遁之术'), 5)
 
     def get_ground(self):
         self.set_effect(s('土遁之术'))
         return combos['ground'].copy()
 
-    def common(self, data: LogicData) -> UseAbility| UseItem| UseCommon| None:
+    def common(self, data: 'LogicData') -> UseAbility| UseItem| UseCommon| None:
         if data.gcd < 0.3 and not self.combo:
             combo_use = data.config.custom_settings.setdefault('ninja_combo', '')
             if combo_use in combos:
@@ -121,16 +122,16 @@ class NinjaStrategy(Strategy):
                     self.combo = self.get_ground()
                 else:
                     self.combo = combos['water_multi'].copy()
-        elif data[a('天之印(NIN)')] <= 20:
-            if data.me.level >= 45:
+        elif data[a('天之印(NIN)(0)')] <= 20 and data.skill_unlocked(a('天之印(NIN)(0)')):
+            if data.me.level >= 45 and data.skill_unlocked(a('人之印(NIN)(0)')):
                 if not data.gauge.huton_ms:
                     self.combo = combos['wind'].copy()
                 else:
-                    if (data[a('天之印(NIN)')] < 20 or not data[a('命水(NIN)')]) and s('水遁之术') not in data.effects and (data[a('天之印(NIN)')] < 5 or data[a('攻其不备(NIN)')] < 5 or data.target_distance > 6):
+                    if (data[a('天之印(NIN)(0)')] < 20 or not data[a('命水(NIN)')]) and s('水遁之术') not in data.effects and (data[a('天之印(NIN)')] < 5 or data[a('攻其不备(NIN)')] < 5 or data.target_distance > 6):
                         self.combo = combos['water'].copy()
                     elif aoe_cnt > 2 and data.max_ttk > 15 and self.can_ground(data):
                         self.combo = self.get_ground()
-            if not self.combo and (data[a('天之印(NIN)')] < 5 or data.target_distance > 6):
+            if not self.combo and (data[a('天之印(NIN)(0)')] < 5 or data.target_distance > 6):
                 if data.me.level >= 35:
                     if fire_aoe_cnt > 2:
                         self.combo = combos['fire'].copy()

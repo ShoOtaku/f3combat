@@ -14,13 +14,13 @@ class DragoonStrategy(Strategy):
         if data.target_distance <= 3:
             single_target = data.target
         else:
-            if data.target_distance <= 10 and data.me.level >= 62 and data.combo_id == a('死天枪(DRG)'):
+            if data.target_distance <= 10 and data.target_distance >= 5 and data.me.level >= 62 and data.combo_id == a('死天枪(DRG)'):
                 return UseAbility(a('音速刺(DRG)'))
-            elif data.target_distance <= 10 and data.me.level >= 72 and data.combo_id == a('音速刺(DRG)'):
+            elif data.target_distance <= 10 and data.target_distance >= 5 and data.me.level >= 72 and data.combo_id == a('音速刺(DRG)'):
                 return UseAbility(a('山境酷刑(DRG)'))
-            elif data.target_distance <= 10 and data.me.level >= 82 and s('龙眼') in data.effects:
+            elif data.target_distance <= 10 and data.target_distance >= 5 and data.me.level >= 82 and s('龙眼') in data.effects:
                 return UseAbility(a('龙眼苍穹(DRG)'))
-            elif data.target_distance <= 10 and data.me.level >= 40 and data.skill_unlocked(a('死天枪(DRG)')):
+            elif data.target_distance <= 10 and data.target_distance >= 5 and data.me.level >= 40 and data.skill_unlocked(a('死天枪(DRG)')):
                 return UseAbility(a('死天枪(DRG)'))
             elif data.target_distance >=5 and data.target_distance <= 20 and data.me.level >= 15 and data.skill_unlocked(a('贯穿尖(DRG)')):
                 return UseAbility(a('贯穿尖(DRG)'))
