@@ -18,6 +18,8 @@ How to add a new strategy to your XivCombat
 
 **DRG:** complete
 
-**BLM: **complete
+**BLM:** complete
 
 **NIN:** incomplete (mudra is broken)
+
+**WAR:** complete
